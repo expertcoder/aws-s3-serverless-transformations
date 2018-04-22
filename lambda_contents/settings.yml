@@ -1,0 +1,7 @@
+transformations:
+  small:
+    height: 120
+    width: 120
+  medium:
+    height: 200
+    width: 200
