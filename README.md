@@ -2,14 +2,28 @@
 
 ######Image resizing with S3 and AWS Lambda
 
+###Why?
+* uploads can be made directly to S3 to avoid load on your server
+(Using Presigned URL can provide temp access to users)
+* Very high scalability
+* Less dependencies installed on main server
 
+###How?
+
+`template.yml` is a CloudFormation template (SAM Template) which creates an S3 bucket
+and relevant Lambda Function and and permissions.
+
+Actual resizing is performed via Python code and Pillow Library. PIP packages will need to
+be prepared, since Pillow packages has binaries, this should be performed on an Lambda compatible
+instance. see [Lambda compiler Repo](https://github.com/expertcoder/aws-lambda-php-compiler)
+
+When uploading images to the created S3 bucket, simply prefix the object key with `_/`.
+
+Resizing options can be set in `settings.yml`
 
 #### Folders
 
 *lamdba_contents:* the contents of the actual lambda function
-
-*pip_build:* Some python packages built specifically for AWS Lambda
-(been stored here for the moment in the absence of a better build process)
 
 *sam_build:* AWS SAM needs to generate a temp template with AWS references substituted
 
