@@ -1,14 +1,14 @@
 ## Serverless Transformations
 
-######Image resizing with S3 and AWS Lambda
+###### Image resizing with S3 and AWS Lambda
 
-###Why?
+### Why?
 * uploads can be made directly to S3 to avoid load on your server
 (Using Presigned URL can provide temp access to users)
 * Very high scalability
 * Less dependencies installed on main server
 
-###How?
+### How?
 
 `template.yml` is a CloudFormation template (SAM Template) which creates an S3 bucket
 and relevant Lambda Function and and permissions.
